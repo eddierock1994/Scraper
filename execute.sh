@@ -1,0 +1,11 @@
+
+#to find restaurant details
+header='curl --header "X-Zomato-API-Key:545b9cfea1fa3f9b7ec423f74db11aad" curl -X GET --header "Accept: application/json" --header "user_key: 545b9cfea1fa3f9b7ec423f74db11aad" "https://developers.zomato.com/api/v2.1/restaurant?res_id="'
+api=$header$1
+#eval $api
+
+#to fetch restaurant reviews
+header2='curl -X GET --header "Accept: application/json" --header "user_key: 545b9cfea1fa3f9b7ec423f74db11aad" "https://developers.zomato.com/api/v2.1/reviews?res_id='
+trailer2='&start=0&count=15"'
+api2=$header2$1$trailer2
+eval $api2 > output.txt
